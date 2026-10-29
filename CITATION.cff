@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use MetaFiLM, please cite the paper below."
+title: "MetaFiLM: metadata-conditioned FiLM modulation for cold-start demand forecasting"
+type: software
+version: 0.1.0
+date-released: 2026-10-29
+license: MIT
+repository-code: "https://github.com/FH-Prevail/MetaFilm"
+url: "https://pypi.org/project/metafilm/"
+keywords:
+  - demand forecasting
+  - cold start
+  - feature-wise linear modulation
+  - metadata
+  - time series
+authors:
+  - family-names: Mirshahi
+    given-names: Sina
+    email: sina.mirshahi@fh-steyr.at
+    affiliation: "University of Applied Sciences Upper Austria"
+  - family-names: Falatouri
+    given-names: Taha
+    affiliation: "University of Applied Sciences Upper Austria"
+  - family-names: Brandtner
+    given-names: Patrick
+    affiliation: "University of Applied Sciences Upper Austria"
+  - family-names: Nasseri
+    given-names: Mehran
+    affiliation: "University of Applied Sciences Upper Austria"
+  - family-names: Kominkova Oplatkova
+    given-names: Zuzana
+    affiliation: "Tomas Bata University in Zlin"
+preferred-citation:
+  type: conference-paper
+  title: "MetaFiLM: Metadata-Conditioned FiLM Modulation for Cold-Start Demand Forecasting"
+  authors:
+    - family-names: Mirshahi
+      given-names: Sina
+    - family-names: Falatouri
+      given-names: Taha
+    - family-names: Brandtner
+      given-names: Patrick
+    - family-names: Nasseri
+      given-names: Mehran
+    - family-names: Kominkova Oplatkova
+      given-names: Zuzana
+  collection-title: "CENTERIS 2026: International Conference on ENTERprise Information Systems"
+  conference:
+    name: "CENTERIS 2026"
+    city: Seville
+    country: ES
+    date-start: 2026-11-11
+    date-end: 2026-11-13
+  year: 2026
+  notes: "To appear in Procedia Computer Science."

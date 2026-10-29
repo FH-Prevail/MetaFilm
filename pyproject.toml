@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.27,<1.28"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metafilm"
+version = "0.1.0"
+description = "Metadata-conditioned FiLM modulation for cold-start demand forecasting"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Sina Mirshahi", email = "sina.mirshahi@fh-steyr.at" },
+    { name = "Taha Falatouri" },
+    { name = "Patrick Brandtner" },
+    { name = "Mehran Nasseri" },
+    { name = "Zuzana Kominkova Oplatkova" },
+]
+maintainers = [{ name = "Sina Mirshahi", email = "sina.mirshahi@fh-steyr.at" }]
+keywords = [
+    "demand forecasting", "cold start", "time series", "FiLM",
+    "feature-wise linear modulation", "metadata", "retail", "supply chain",
+    "deep learning", "pytorch",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scikit-learn>=1.1",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+experiments = ["xgboost>=1.7", "pyarrow>=10"]
+dev = ["pytest>=7", "build>=1.0", "twine>=6.1"]
+
+[project.urls]
+Homepage = "https://github.com/FH-Prevail/MetaFilm"
+Repository = "https://github.com/FH-Prevail/MetaFilm"
+Issues = "https://github.com/FH-Prevail/MetaFilm/issues"
+Changelog = "https://github.com/FH-Prevail/MetaFilm/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/metafilm"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/metafilm",
+    "tests",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CITATION.cff",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]

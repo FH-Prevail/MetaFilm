@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+
+# Editor / backups
+*.bak
+
+# Large regenerable prediction binaries (rebuild via experiments/bench_*.py)
+*_preds.npz
+
+# Run logs
+*.log
+results/**/*.log
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.toc
+
+# Downloaded dataset archives (keep the extracted .tsf, not the zip)
+data/**/*.zip
+
+# Large raw M5 data (re-download via datasetsforecast.M5)
+data/m5_dl/
+data/m5/
+
+# Packaging and test artefacts
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.venv/
