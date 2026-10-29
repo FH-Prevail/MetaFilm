@@ -15,6 +15,8 @@ Forecasting".
   weights; the experiment scripts set `restore_best_weights=False` so every
   published number reproduces exactly.
 - `MetaFiLMForecaster.load` works with PyTorch 2.6 and later.
+- Works with pandas 2 and pandas 3 (including the pandas 3 string dtype);
+  metadata values unseen at fit time still map to the reserved "unknown" code.
 - Test suite (including the parameter counts reported in the paper),
   documentation, and the experiment scripts and results for the public
   benchmarks (M5 weekly and Monash CarParts).

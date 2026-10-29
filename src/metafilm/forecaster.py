@@ -497,16 +497,15 @@ class MetaFiLMForecaster(BaseEstimator):
         If learn=False, apply stored categories and map unknowns to an 'unknown' index.
         """
         df = df.copy()
-        try:
-            from pandas.api.types import CategoricalDtype
-        except Exception:  # pragma: no cover
-            CategoricalDtype = None  # type: ignore
 
         for col in self.config.context_features:
             if col not in df.columns:
                 continue
-            if np.issubdtype(df[col].dtype, np.number):
-                # Already numeric
+            dtype = df[col].dtype
+            if pd.api.types.is_numeric_dtype(dtype) and not pd.api.types.is_bool_dtype(dtype):
+                # Already numeric. (np.issubdtype cannot read pandas extension
+                # dtypes such as the pandas 3 string dtype; booleans stay
+                # categorical, as before.)
                 continue
             if learn:
                 # Learn categories from training data
@@ -517,14 +516,14 @@ class MetaFiLMForecaster(BaseEstimator):
             else:
                 # Apply stored categories; map unknowns to last index
                 cats = self._context_categories.get(col, [])
-                if CategoricalDtype is not None and len(cats) > 0:
-                    dtype = CategoricalDtype(categories=cats)
-                    df[col] = df[col].astype(dtype)
-                    codes = df[col].cat.codes.astype('int32')
+                if len(cats) > 0:
+                    # Look the codes up directly: casting values that are not
+                    # among the learned categories is deprecated in pandas 3.
+                    # Unknown values and NaN map to the reserved last index.
                     unknown_idx = len(cats)
-                    # pandas uses -1 for unknowns; remap to unknown_idx
-                    codes = codes.where(codes != -1, other=unknown_idx)
-                    df[col] = codes
+                    lookup = {c: i for i, c in enumerate(cats)}
+                    codes = df[col].map(lookup)
+                    df[col] = codes.fillna(unknown_idx).astype('int32')
                 else:
                     # No stored categories; fallback to ordinal encode (best effort)
                     df[col] = df[col].astype('category').cat.codes.astype('int32')
