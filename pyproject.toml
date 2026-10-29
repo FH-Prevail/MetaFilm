@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "metafilm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Metadata-conditioned FiLM modulation for cold-start demand forecasting"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [
-    { name = "Sina Mirshahi", email = "sina.mirshahi@fh-steyr.at" },
+    { name = "Sina Mirshahi" },
     { name = "Taha Falatouri" },
     { name = "Patrick Brandtner" },
     { name = "Mehran Nasseri" },

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 (2026-10-29)
+
+- Package metadata lists all five authors in the paper's order. In 0.1.0 the
+  first author appeared only as the contact address on PyPI. No code changes.
+
 ## 0.1.0 (2026-10-29)
 
 First public release, accompanying the CENTERIS 2026 paper
